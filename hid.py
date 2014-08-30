@@ -107,7 +107,7 @@ class USBHID(USBDevice):
         # Send data only for 5 seconds
         if (datetime.datetime.now() - self.start_time).seconds < 5:
             return_val = chr(0x0) + chr(random.randint(1, 10)) + chr(random.randint(1, 10)) + chr(random.randint(1, 10))
-            self.send_usb_req(usb_req, return_val, status=0x7FFF)
+            self.send_usb_req(usb_req, return_val)
 
 
     def handle_unknown_control(self, control_req, usb_req):
